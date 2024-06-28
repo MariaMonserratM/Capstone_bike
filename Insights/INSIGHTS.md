@@ -55,17 +55,16 @@ En concreto nos hemos apoyado en estas librerias:
 
 #### 2.2.1 Técnicas y pasos realizados
 
-Primero nos hemos preguntado qué capacidad tienen exactamente las estaciones. Y si siguen una norma concreta dependiendo de su localización. Para comprobar esto, hemos 
-visualizado el mapa de Barcelona, por barrios, de todas las estaciones
-y las capacidades de cada una.
+Primero, nos hemos preguntábamos cual era la ocupación media de las estaciones. Queríamos comprobar qué era lo normal (a grosso modo) para cada estación, si estar más vacía, más llena o un término medio y si tenía algo que ver con su localización. 
+Y también qué capacidad tienen exactamente porque a lo mejor sí que tenía algo que ver también con su localización. 
+Para comprobar esto, hemos visualizado en el mapa de Barcelona todas las estaciones.
+Para representar su estado usual se ha utilizado un círculo rojo/salmón en el caso de que suelan estar más llenas, 
+gris para las medio llenas y azul para las vacías. Ha quedado así: 
 
-Los datos los hemos tenido que complimentar y preprocesar antes, porque había variables que no venían en el DataFrame, como los barrios, y eran muy importantes para la visualización. Además, 
-utilizamos la columna "last_reported" para extraer el minuto, la hora, el día, el mes, y el año que le correspondía a cada entrada. El día exacto de la semana y del año para también lo hemos extraido porque necesitábamos ver si era un día de fiesta, entre semana o fin de semana. 
+![newplot.png](imagenes%2Fnewplot.png)
 
-
-
-Con esto hemos visto que XXXXXXXXXX
-
-
+Podemos comprobar a simple vista que usualmente las estaciones con una mayor altura son las que están más vacías, 
+sin embargo, donde suele haber llenas es cerca de la costa, que coincide que tienen una altura menor,
+por lo que ambos casos tendrían sentido.
 
 
