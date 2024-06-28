@@ -1,6 +1,6 @@
-## CAPSTON ANALISIS E INSIGHTS
+# CAPSTON ANALISIS E INSIGHTS
 
-# 1. Introducción
+## 1. Introducción
 
 ### 1.1 Definición del problema
 El objetivo inicial de este análisis fue determinar las rutas entre estaciones para que la reposición de las bicis fuera más rápida y efectiva.
@@ -25,7 +25,7 @@ Se ha asumido que las tendencias observadas en los datos estudiados son represen
 Para este análisis no se consideró estaciones sin info
 
 
-# 2. Metodología
+## 2. Metodología
 
 ### 2.1 Fuentes de datos
 #### 2.1.1 Descripción de las Fuentes de Datos
