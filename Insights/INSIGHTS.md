@@ -16,14 +16,14 @@ El análisis se ha centrado en las siguientes variables clave: station_id, name,
 Como datos externos se han considerado si es fin de semana o no (is_weekend) y si es un día de fiesta o no
 
 ### 1.3 Alcance Temporal
-El análisis cubre datos recolectados de Marzo de 2023 con una frecuencia por minutos.
+El análisis cubre datos recolectados de Enero, Febrero y Marzo de 2023 con una frecuencia por minutos.
 
 ### 1.4 Limitaciones
 Se ha asumido que las tendencias observadas en los datos estudiados son representativas de los comportamientos futuros.
 
 ### 1.5 Exclusiones
-Para este análisis no se consideró estaciones sin info
-
+Al extraer la información y empezar a analizarla, nos dimos cuenta de que las estaciones [ 48, 188, 429, 487, 520] no tenían información de ningún tipo. 
+Para nuestro estudio no eran relevantes, por lo que decimos excluirlas del análisis. 
 
 ## 2. Metodología
 
@@ -55,7 +55,9 @@ En concreto nos hemos apoyado en estas librerias:
 
 #### 2.2.1 Técnicas y pasos realizados
 
-Primero, nos hemos preguntábamos cual era la ocupación media de las estaciones. Queríamos comprobar qué era lo normal (a grosso modo) para cada estación, si estar más vacía, más llena o un término medio y si tenía algo que ver con su localización. 
+##### Análisis de la ocupación usual de las estaciones y su comportamiento
+
+Primero, nos hemos preguntado cuál era la ocupación media de las estaciones. Queríamos comprobar qué era lo normal (a grosso modo) para cada estación, si estar más vacía, más llena o un término medio y si tenía algo que ver con su localización. 
 Y también qué capacidad tienen exactamente porque a lo mejor sí que tenía algo que ver también con su localización. 
 Para comprobar esto, hemos visualizado en el mapa de Barcelona todas las estaciones.
 Para representar su estado usual se ha utilizado un círculo rojo/salmón en el caso de que suelan estar más llenas, 
@@ -67,4 +69,58 @@ Podemos comprobar a simple vista que usualmente las estaciones con una mayor alt
 sin embargo, donde suele haber llenas es cerca de la costa, que coincide que tienen una altura menor,
 por lo que ambos casos tendrían sentido.
 
+Otro aspecto interesante que hemos detectado es que la capacidad de las estaciones no parece tener ninguna relación con 
+la localización de esta. En un primer momento, creímos que esto podría tener relación debido a que las más cercanas al 
+mar siempre suelen estar más llenas y, por lo tanto, si tuvieran más capacidad podrían acoger más bicis y el usuario no 
+tendría que dar muchas vueltas buscando donde aparcarla.
 
+##### Análisis de los patrones durante un día de una sola estación
+
+Segundo, ayudándonos con el mapa, escogimos una estación, la número 57, para empezar a ver los patrones que sigue durante el día.
+Escogimos esta porque está cerca del mar y sospechábamos que veríamos mucho movimiento. Además, es una de las que, con el
+análisis anterior, su estado usual era estar llena.
+
+Para conseguir visualizar el patrón, hemos creado una clase "Visualization" para agrupar todos los tipos de visualizaciones que 
+que hemos hecho. Hay variables que son comunes y se registran dentro del _self._ Estas son la fecha, las estaciones, los 
+barrios, y los tres estados de las estaciones, llena (full_stations), vacías (empty_stations) y el resto (other_stations).
+
+Para este caso en concreto hemos hecho una función llamada _def plot_occupancy_stats(self, station_ids, occu_type, n_week_of_year, day_of_week, n_month_of_year)_ para visualizar cómo varía la
+ocupación durante el período que se le indique. Como se ve en la definición de la función se le pueden pasar las siguientes 
+variables:
+- self: las variables propias de la clase
+- station_ids: los identificadores de cada estación que se quiere evaluar
+- occu_type: tipo de estación según su ocupación
+- n_week_of_year: número de la semana según el año
+- day_of_week: número del día según la semana
+- n_month_of_year: número del mes según el año
+
+En el caso de la estación número 57, que tiene como ocupación usual "full" y el día 09-03-2023, visualizamos el siguiente gráfico:
+
+**XXXXXXX -VISUALIZACIÓN DE UN DÍA DE ESTACION 57- XXXXXXXX**
+
+analisis
+
+##### Análisis de los patrones durante un mes de una sola estación
+
+
+
+
+##### Análisis de los patrones durante tres meses de una sola estación
+
+
+
+
+
+##### Análisis extrapolado a 3 estaciones de sus patrones durante un día
+
+
+
+
+
+##### Análisis extrapolado a 3 estaciones de sus patrones durante un mes
+
+
+
+
+
+##### Análisis extrapolado a 3 estaciones de sus patrones durante tres meses
