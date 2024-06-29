@@ -30,6 +30,8 @@ Para hacer la predicción con los datos de test, se ha entrenado el modelo de nu
 
 ### Segunda parte: Enriquecimiento del dataset y resultado de otros modelos
 #### Variables extras añadidas al dataset
+El código con las funciones y la extracción de la última versión del dataset de training y test se puede explorar en el documento directorio models
+
 Para enriquecer el dataset con variables que pudieran tener un valor predictor nos hemos centrado en características geográficas de la estacion y en caracterísicas temporales.
 
 El listado y la localización de elementos de interés de la ciudad como museos, cines, teatros, bares, etc. han sido obtenido del portal de datos abiertos del Ayuntamiento de Barcelona anteriormente citado.
