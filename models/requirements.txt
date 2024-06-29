@@ -1,0 +1,8 @@
+
+dask
+pandas
+py7zr
+scipy
+numpy
+sklearn
+geopy
