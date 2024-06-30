@@ -25,7 +25,7 @@ El código para la generación del dataset inicial con todos los datos para los 
 El código para la generación del dataset de entrenamiento inicial anteriormente descrito se puede explorar en el archivo _Bike_preprocesed_code.py_ del directorio _datasets and models_.
 
 #### Primer modelo simple
-Para realizar la primera submisión al Kaggle, se ha hecho un split temporal del dataset de entrenamiento, de manera que se ha usado el 80% de los datos como entrenamiento y el 20% como datos de validación. A continaución se ha entrenado un modelo de regresión lineal obteniéndose un RMSE de XXXXX y un R2 de XXXX.
+Para realizar la primera submisión al Kaggle, se ha hecho un split temporal del dataset de entrenamiento, de manera que se ha usado el 80% de los datos como entrenamiento y el 20% como datos de validación. A continaución se ha entrenado un modelo de regresión lineal obteniéndose un RMSE de 0.110990656 y un R2 de 0.820732338.
 Para hacer la predicción con los datos de test, se ha entrenado el modelo de nuevo con el dataset completo de training.
 
 ### Segunda parte: Enriquecimiento del dataset y resultado de otros modelos
@@ -58,7 +58,7 @@ Como características relacionadas con la temporalidad se han añadido las sigui
 * **Estación**: los patrones de uso podrían variar según sea invierno, primavera, verano u otoño.
 * **Si es fin de semana o fiesta**: los patrones de uso podrían variar dependiendo de si es un día de trabajo o no.
 
-Por último, al hacer el análisis de predictores en los diferentes modelos, se ha visto que la variable que mejor predice el target es la disponibilidad de huecos en la hora anterior (ctx-1), así que se ha añadido la **media de la disponibilidad de huevos en las estaciones adyacentes en la hora anterior** para explorar también su capacidad predictiva.
+Por último, al hacer el análisis de predictores en los diferentes modelos, se ha visto que la variable que mejor predice el target es la disponibilidad de huecos en la hora anterior (ctx-1), así que se ha añadido la **media de la disponibilidad de huecos en las estaciones adyacentes en la hora anterior** para explorar también su capacidad predictiva.
 
 Se ha valorado la inclusión de otras variables que finalmente no han sido incluídas en el dataset para su testeado:
 Climatología: se desechó la idea de incluir variables relativas a la climatología por dos razones, 1) los datos abiertos de la AEMET solo proporcionan datos medios diarios y no por hora. Asignar el dato medio del día a todas las horas, podría penalizar el poder predictivo del modelo; y b) la ciudad de Barcelona se caracteriza por tener un clima no muy extremo durante todo el año y las precipitaciones son excasas, lo que una hipotética variable precipitación si/no, sería demasiado desbalanceada y no beneficiaría al modelo.
