@@ -65,7 +65,23 @@ Climatología: se desechó la idea de incluir variables relativas a la climatolo
 Distancia a la playa y a la montaña: como estas características están muy correlacionadas con la altitud, se decidió no inclirlas para su testeado.
 
 
-#### Entrenamiento de diferentes modelos
+## 3. Exploración de los Datos, Selección de Variables y Modelización
+
+### Exploración de los datos
+
+#### Año 2020 y COVID-19
+El año 2020 se caracterizó por ser muy atípico debido a la pandemia mundial de COVID-19 que alteró drásticamente los patrones habituales de actividad humana, incluyendo el uso del transporte. Incorporar datos de este año en nuestros modelos de aprendizaje automático podría conducir a interpretaciones inexactas y a la identificación de patrones que no reflejan las condiciones normales.
+
+* **Comportamiento No Representativo de los Usuarios**: Confinamientos y Restricciones.
+
+* **Patrones de Datos Anómalos**: Eventos específicos relacionados con la pandemia, como fases de reapertura o nuevos confinamientos, crearon cambios bruscos y no recurrentes en los patrones de uso.
+
+* **Impacto en la Precisión del Modelo**: Incluir datos de 2020 podría introducir anomalías y ruido, llevando al modelo a aprender patrones que no se generalizan bien a otros años.
+
+
+
+
+
 
 
 #### Selección de variables y modelo final
