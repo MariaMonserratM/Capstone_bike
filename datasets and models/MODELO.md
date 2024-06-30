@@ -25,7 +25,7 @@ El código para la generación del dataset inicial con todos los datos para los 
 El código para la generación del dataset de entrenamiento inicial anteriormente descrito se puede explorar en el archivo _Bike_preprocesed_code.py_ del directorio _datasets and models_.
 
 #### Primer modelo simple
-Para realizar la primera submisión al Kaggle, se ha hecho un split temporal del dataset de entrenamiento, de manera que se ha usado el 80% de los datos como entrenamiento y el 20% como datos de validación. A continaución se ha entrenado un modelo de regresión lineal obteniéndose un RMSE de 0.110990656 y un R2 de 0.820732338.
+Para realizar la primera submisión al Kaggle, se ha hecho un split temporal del dataset de entrenamiento, de manera que se ha usado el 80% de los datos como entrenamiento y el 20% como datos de validación. A continuación, se ha entrenado un modelo de regresión lineal obteniéndose un RMSE de 0.110990656 y un R2 de 0.820732338.
 Para hacer la predicción con los datos de test, se ha entrenado el modelo de nuevo con el dataset completo de training.
 
 ### Segunda parte: Enriquecimiento del dataset y resultado de otros modelos
