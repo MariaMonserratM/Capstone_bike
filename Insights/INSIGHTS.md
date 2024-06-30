@@ -35,7 +35,7 @@ Para nuestro estudio no eran relevantes, por lo que decimos excluirlas del anál
 
 #### 2.1.2 Tipos de Datos
 
-- Datos de geolocalización: latitud, logitud, código postal, altura.
+- Datos de geolocalización: latitud, longitud, código postal, altura.
 - Datos temporales: fecha, año, mes, día, minutos, horas.
 - Datos cuantitativos: capacidad de las estaciones, bicis disponibles
 - Datos nominales: nombre de las estaciones y su id.
@@ -55,7 +55,7 @@ En concreto nos hemos apoyado en estas librerias:
 
 #### 2.2.1 Técnicas y pasos realizados
 
-##### Análisis de la ocupación usual de las estaciones y su comportamiento
+##### Análisis de la ocupación y capacidad usual de las estaciones y su comportamiento
 
 Primero, nos hemos preguntado cuál era la ocupación media de las estaciones. Queríamos comprobar qué era lo normal (a grosso modo) para cada estación, si estar más vacía, más llena o un término medio y si tenía algo que ver con su localización. 
 Y también qué capacidad tienen exactamente porque a lo mejor sí que tenía algo que ver también con su localización. 
@@ -74,11 +74,17 @@ la localización de esta. En un primer momento, creímos que esto podría tener 
 mar siempre suelen estar más llenas y, por lo tanto, si tuvieran más capacidad podrían acoger más bicis y el usuario no 
 tendría que dar muchas vueltas buscando donde aparcarla.
 
+Hemos detectado algunas estaciones que podrían ser outliers. Son casos en los que parece haber dos estaciones en el mismo
+punto exacto, pero en un caso está medio llena y en el otro está vacía. Sería un punto donde seguir investigando para saber si 
+realmente existen esas estaciones, cuál es el comportamiento real, etc. A continuación, ponemos un ejemplo en la Ronda Litoral.
+
+![img_4.png](imagenes/img_4.png)
+
 ##### Análisis de los patrones durante un día de una sola estación
 
-Segundo, ayudándonos con el mapa, escogimos una estación, la número 57, para empezar a ver los patrones que sigue durante el día.
-Escogimos esta porque está cerca del mar y sospechábamos que veríamos mucho movimiento. Además, es una de las que, con el
-análisis anterior, su estado usual era estar llena.
+Segundo, ayudándonos con el mapa, escogimos una estación, la número 371, para empezar a ver los patrones que sigue durante el día.
+Escogimos esta porque está en medio de la ciudad y sospechábamos que veríamos mucho movimiento o al menos varios picos interesantes. Además, es una de las que, con el
+análisis anterior, su estado usual era other.
 
 Para conseguir visualizar el patrón, hemos creado una clase "Visualization" para agrupar todos los tipos de visualizaciones que 
 que hemos hecho. Hay variables que son comunes y se registran dentro del _self._ Estas son la fecha, las estaciones, los 
@@ -94,16 +100,67 @@ variables:
 - day_of_week: número del día según la semana
 - n_month_of_year: número del mes según el año
 
-En el caso de la estación número 57, que tiene como ocupación usual "full" y el día 09-03-2023, visualizamos el siguiente gráfico:
+La frecuencia temporal que hemos establecido es por minutos. Dado que queremos ver los patrones durante todo el día, consideramos 
+importante hacer el análisis minuto a minuto para no perdernos ningún detalle. Al principio, habíamos considerado hacerlo por horas 
+para reutilizar el dataset generado para el modelo que estaba agrupado por horas, pero nos dimos cuenta que si de verdad
+queríamos ver los patrones completos era necesario hacerlo por minutos. Además, tal y como se explica en el documento MODELOS.md 
+no se usan todas las variables, dado que todas no aportan valor al modelo. Pero para esta parte si que se necesitaban ese tipo de variables,
+como la Latitud o Longitud. 
 
-**XXXXXXX -VISUALIZACIÓN DE UN DÍA DE ESTACION 57- XXXXXXXX**
+Como hemos dicho, nos hemos querido centrar en la estación número 371, que está en el Carrer dels Enamorats y tiene como 
+ocupación usual "other", que quiere decir que su capacidad normalmente suele estar a la mitad.
+El análisis es del día 09-03-2023. Visualizamos el siguiente gráfico:
 
-analisis
+![img_5.png](imagenes/img_5.png)
+
+Si nos fijamos en la curva amarilla que representa a la estación 371, observamos lo siguiente:
+
+- **Madrugada (00:00 - 06:00):** Durante las primeras horas de la madrugada, la capacidad de la estación se mantiene muy baja, cercana a 0, lo que indica que la estación está casi llena.
+
+
+- **Mañana (06:00 - 12:00):**
+  - 06:00 - 08:00: Se observa un aumento en la capacidad, alcanzando valores alrededor de 0.4. Esto sugiere que durante estas horas las bicicletas empiezan a ser retiradas para el uso matutino.
+  - 08:00 - 10:00: La capacidad sigue aumentando, pero a un ritmo más lento, estabilizándose cerca de 0.6. Indica una alta demanda de bicicletas.
+  - 10:00 - 12:00: La capacidad continúa aumentando, alcanzando casi 0.9 alrededor del mediodía, indicando que la estación está casi vacía debido al alto uso de bicicletas.
+
+
+- **Mediodía (12:00 - 14:00):**
+  - 12:00 - 12:30: La capacidad de la estación se mantiene alta, cercana a 0.9. Esto indica que la mayoría de las bicicletas han sido retiradas, y la estación está casi vacía.
+  - 12:30 - 13:00: La capacidad sigue siendo alta, alrededor de 0.85 a 0.9. La estación sigue casi vacía, indicando una baja actividad de devolución de bicicletas. Lo que tiene sentido dado que la gente trabaja durante este horario.
+  - 13:00 - 14:00: En esta franja horaria, la capacidad comienza a mostrar una ligera disminución, bajando de 0.9 a aproximadamente 0.6. Esto sugiere que o han repuesto bicicletas o la gente sube de trabajar. Pero lo más probable, por lo que parece, es que
+  Bicing las haya repuesto para que la gente que sale a comer pueda utilizarlas.
+
+
+- **Tarde (14:00 - 18:00):**:
+  - 14:00 - 14:30: La capacidad comienza a disminuir ligeramente, llegando a aproximadamente 0.8. Esto indica que algunas bicicletas empiezan a usarse, lo que apoyaría la teoría de que la franja anterior ha sido una reposición.
+14:30 - 15:00
+Capacidad inicial: Alrededor de 0.8.
+Evolución: La capacidad sigue disminuyendo, alcanzando alrededor de 0.6. Más bicicletas están siendo devueltas a la estación, lo que indica un aumento en la actividad de devolución.
+
+
+
+- **Noche (18:00 - 24:00):** Durante la tarde y la noche, la capacidad fluctúa, pero tiende a mantenerse en valores bajos, entre 0.2 y 0.4, lo que indica una ocupación moderada.
 
 ##### Análisis de los patrones durante un mes de una sola estación
 
+Detectar los patrones durante un día aislado no es suficiente para detectar patrones reales de una estación. Como primer
+enfoque para empezar a detectar factores está muy bien, pero nosotros queríamos ir más allá. 
+¿Pasaría lo mismo el mismo día durante todo el mes?
 
+Para analizarlo, escogimos los miércoles del mes de Marzo de la misma estación, la 371.  
 
+![img.png](imagenes/img_273.png)
+
+Es superinteresante observar varias tendencias:
+
+- **Madrugada (00:00 - 06:00):** Generalmente, la capacidad es baja durante las primeras horas de la madrugada, con un pequeño incremento justo antes del amanecer en algunos días.
+- **Mañana (06:00 - 12:00):** Hay un aumento significativo en la capacidad durante las primeras horas de la mañana, alcanzando un pico entre las 08:00 y 09:00, lo cual es típico del inicio de la jornada laboral.
+- **Tarde (12:00 - 18:00):** La capacidad disminuye gradualmente después del pico matutino y muestra fluctuaciones, posiblemente debido a la hora del almuerzo y la variabilidad en las rutinas de las personas.
+- **Noche (18:00 - 24:00):** Se observa otro aumento en la capacidad durante la tarde y la noche, alcanzando otro pico significativo alrededor de las 18:00-20:00 horas, seguido de una disminución hacia el final del día.
+
+En conclusión, parece que si se cumplen los mismos patrones, por lo que quizá nos pueda ayudar a determinar las horas clave 
+para hacer reposición de bicis y si se comparara con las estaciones de alrededor, quizá hasta de donde sería más óptimo
+cogerlas. (pregunta original)
 
 ##### Análisis de los patrones durante tres meses de una sola estación
 
@@ -114,13 +171,25 @@ analisis
 ##### Análisis extrapolado a 3 estaciones de sus patrones durante un día
 
 
-
+![img.png](imagenes/img_12.png)
 
 
 ##### Análisis extrapolado a 3 estaciones de sus patrones durante un mes
 
+**¡¡¡¡¡¡¡CAMBIAR TITULO GRÁFICOS!!!!!!!**
 
+![img_1.png](img_1.png
 
+Tendencias generales:
+
+- **Madrugada (00:00 - 06:00):** Generalmente, la ocupación es baja durante las primeras horas de la madrugada, con algunas variaciones menores.
+- **Mañana (06:00 - 12:00):** La ocupación varía, pero en general es baja en comparación con otros periodos del día. No se observa un pico matutino pronunciado como en otros gráficos similares.
+- **Tarde (12:00 - 18:00):** La ocupación muestra fluctuaciones moderadas, pero no hay un pico significativo.
+- **Noche (18:00 - 24:00):** Se observa un aumento en la ocupación en algunos días durante la tarde y la noche, aunque en general la ocupación se mantiene baja.
+
+![img_2.png](imagenes/img_2.png)
+
+![img_3.png](imagenes/img_3.png)
 
 
 ##### Análisis extrapolado a 3 estaciones de sus patrones durante tres meses
