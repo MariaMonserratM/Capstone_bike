@@ -76,9 +76,9 @@ tendría que dar muchas vueltas buscando donde aparcarla.
 
 ##### Análisis de los patrones durante un día de una sola estación
 
-Segundo, ayudándonos con el mapa, escogimos una estación, la número 57, para empezar a ver los patrones que sigue durante el día.
-Escogimos esta porque está cerca del mar y sospechábamos que veríamos mucho movimiento. Además, es una de las que, con el
-análisis anterior, su estado usual era estar llena.
+Segundo, ayudándonos con el mapa, escogimos una estación, la número 371, para empezar a ver los patrones que sigue durante el día.
+Escogimos esta porque está en medio de la ciudad y sospechábamos que veríamos mucho movimiento o al menos varios picos interesantes. Además, es una de las que, con el
+análisis anterior, su estado usual era other.
 
 Para conseguir visualizar el patrón, hemos creado una clase "Visualization" para agrupar todos los tipos de visualizaciones que 
 que hemos hecho. Hay variables que son comunes y se registran dentro del _self._ Estas son la fecha, las estaciones, los 
@@ -94,16 +94,34 @@ variables:
 - day_of_week: número del día según la semana
 - n_month_of_year: número del mes según el año
 
-En el caso de la estación número 57, que tiene como ocupación usual "full" y el día 09-03-2023, visualizamos el siguiente gráfico:
+La frecuencia temporal es por minutos.
 
-**XXXXXXX -VISUALIZACIÓN DE UN DÍA DE ESTACION 57- XXXXXXXX**
+En el caso de la estación número 371, en el Carrer dels Enamorats, que tiene como ocupación usual "other" y el día 09-03-2023, visualizamos el siguiente gráfico:
+
+**XXXXXXX -VISUALIZACIÓN DE UN DÍA DE ESTACION 371- XXXXXXXX**
 
 analisis
 
 ##### Análisis de los patrones durante un mes de una sola estación
 
+Detectar los patrones durante un día aislado no es suficiente para detectar patrones reales de una estación. Como primer
+enfoque para empezar a detectar factores está muy bien, pero nosotros queríamos ir más allá. 
+¿Pasaría lo mismo el mismo día durante todo el mes?
 
+Para analizarlo, escogimos los miércoles del mes de Marzo de la misma estación, la 371.  
 
+![img.png](imagenes/img_273.png)
+
+Es superinteresante observar varias tendencias:
+
+- **Madrugada (00:00 - 06:00):** Generalmente, la capacidad es baja durante las primeras horas de la madrugada, con un pequeño incremento justo antes del amanecer en algunos días.
+- **Mañana (06:00 - 12:00):** Hay un aumento significativo en la ocupación durante las primeras horas de la mañana, alcanzando un pico entre las 08:00 y 09:00, lo cual es típico del inicio de la jornada laboral.
+- **Tarde (12:00 - 18:00):** La ocupación disminuye gradualmente después del pico matutino y muestra fluctuaciones, posiblemente debido a la hora del almuerzo y la variabilidad en las rutinas de las personas.
+- **Noche (18:00 - 24:00):** Se observa otro aumento en la ocupación durante la tarde y la noche, alcanzando otro pico significativo alrededor de las 18:00-20:00 horas, seguido de una disminución hacia el final del día.
+
+En conclusión, parece que si se cumplen los mismos patrones, por lo que quizá nos pueda ayudar a determinar las horas clave 
+para hacer reposición de bicis y si se comparara con las estaciones de alrededor, quizá hasta de donde sería más óptimo
+cogerlas. (pregunta original)
 
 ##### Análisis de los patrones durante tres meses de una sola estación
 
