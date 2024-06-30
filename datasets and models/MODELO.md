@@ -67,7 +67,6 @@ Distancia a la playa y a la montaña: como estas características están muy cor
 
 #### Entrenamiento de diferentes modelos
 
-hola que tal 
 
 #### Selección de variables y modelo final
 
