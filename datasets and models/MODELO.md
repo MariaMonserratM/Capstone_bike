@@ -21,8 +21,8 @@ Solo se han usado las estaciones que se encuentran en el dataset de test (399 es
 #### Primer dataset
 El Ayuntamiento de Barcelona recoge el estado de las diferentes estaciones cada 5 minutos aproximadamente. Para disminuir la complejidad de los datos y del modelo, se ha calculado la media de la disponibilidad de huecos por hora para cada estación, y se ha construido un dataset inicial con los datos de la estación, el año, el mes, el día, la hora, y la disponibilidad de huecos en las 4 horas anteriores a la hora diana. A estas últimas variables las hemos denominado _variables contexto_.
 
-El código para la generación del dataset inicial con todos los datos para los años 2020 a 2023 se puede explorar en el archivo _Load_concatenate_data_code.py_ del directorio _Dataset_.
-El código para la generación del dataset de entrenamiento inicial anteriormente descrito se puede explorar en el archivo _Bike_preprocesed_code.py_ del directorio _Dataset_.
+El código para la generación del dataset inicial con todos los datos para los años 2020 a 2023 se puede explorar en el archivo _Load_concatenate_data_code.py_ del directorio _datasets and models_.
+El código para la generación del dataset de entrenamiento inicial anteriormente descrito se puede explorar en el archivo _Bike_preprocesed_code.py_ del directorio _datasets and models_.
 
 #### Primer modelo simple
 Para realizar la primera submisión al Kaggle, se ha hecho un split temporal del dataset de entrenamiento, de manera que se ha usado el 80% de los datos como entrenamiento y el 20% como datos de validación. A continaución se ha entrenado un modelo de regresión lineal obteniéndose un RMSE de XXXXX y un R2 de XXXX.
@@ -30,7 +30,7 @@ Para hacer la predicción con los datos de test, se ha entrenado el modelo de nu
 
 ### Segunda parte: Enriquecimiento del dataset y resultado de otros modelos
 #### Variables extras añadidas al dataset
-El código con las funciones y la extracción de la última versión del dataset de training y test se puede explorar en el documento directorio models
+El código con las funciones y la extracción de la última versión del dataset de training y test se puede explorar en el documento _Extra_variables_dataset.py_ del directorio _datasets and models_
 
 Para enriquecer el dataset con variables que pudieran tener un valor predictor nos hemos centrado en características geográficas de la estacion y en caracterísicas temporales.
 
