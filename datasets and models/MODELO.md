@@ -82,7 +82,7 @@ El año 2020 se caracterizó por ser muy atípico debido a la pandemia mundial d
 
 En 2020, observamos una clara diferencia en el porcentaje de disponibilidad de docks en comparación con los años 2021, 2022 y 2023, que muestran patrones similares entre ellos. El porcentaje promedio de docks disponibles por mes es relativamente constante a lo largo de estos años, excepto en 2020 (especialmente en marzo, abril, mayo y junio).
 
-Hemos decidido excluir 2020, nos aseguramos de que los datos de entrenamiento reflejen patrones regulares y predecibles de uso de bicicletas, lo que mejora la robustez y la fiabilidad de nuestras predicciones. Los modelos entrenados con datos de años más representativos (por ejemplo, 2021, 2022, 2023) tienen más probabilidades de generalizarse bien a las condiciones futuras, proporcionando insights más precisos y útiles. Por estas razones, hemos decidido excluir los datos de 2020 en nuestros modelos predictivos.
+Excluyendo el año 2020 nos aseguramos de que los datos de entrenamiento reflejen patrones regulares y predecibles de uso de bicicletas, lo que mejora la robustez y la fiabilidad de nuestras predicciones. Los modelos entrenados con datos de años más representativos (por ejemplo, 2021, 2022, 2023) tienen más probabilidades de generalizarse bien a las condiciones futuras, proporcionando insights más precisos y útiles. Por estas razones, hemos decidido excluir los datos de 2020 en nuestros modelos predictivos.
 
 #### Estaciones del año
 
