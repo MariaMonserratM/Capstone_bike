@@ -67,6 +67,8 @@ Distancia a la playa y a la montaña: como estas características están muy cor
 
 ## 3. Exploración de los Datos, Selección de Variables y Modelización
 
+El notebook donde se detalla el código que se ha utilizado para elaborar los resultados que se van a mostrar a continuación se encuentra en el documento Docks_Availability_Prediction_Bicing.ipynb.
+
 ### Exploración de los datos
 
 #### Año 2020 y COVID-19
