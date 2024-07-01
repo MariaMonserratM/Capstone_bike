@@ -1,4 +1,4 @@
-# CAPSTON ANALISIS E INSIGHTS
+# CAPSTON ANÁLISIS E INSIGHTS
 
 ## 1. Introducción
 
@@ -6,7 +6,7 @@
 El objetivo inicial de este análisis fue determinar las rutas entre estaciones para que la reposición de las bicis fuera más rápida y efectiva.
 Responder a esta pregunta requiere más tiempo del disponible para este proyecto, por lo que hemos dividido esa pregunta en pequeños análisis que ayudarán a, si alguien quiere seguir con esta propuesta, responder a esa gran pregunta. 
 
-1. Identificar los patrones que existen durante un día entero en una estación del bincing.
+1. Identificar los patrones que existen durante un día entero en una estación del Bicing.
 2. Identificar los patrones que existen en una estación durante un mes cogiendo siempre el mismo día (ex:jueves)
 3. Extrapolarlo a tres estaciones con alturas diferentes. Una parte alta de Barcelona, otra por la parte del Eixample y otra por la zona costera.
 
@@ -16,7 +16,7 @@ El análisis se ha centrado en las siguientes variables clave: station_id, name,
 Como datos externos se han considerado si es fin de semana o no (is_weekend) y si es un día de fiesta o no
 
 ### 1.3 Alcance Temporal
-El análisis cubre datos recolectados de Enero, Febrero y Marzo de 2023 con una frecuencia por minutos.
+El análisis cubre datos recolectados de enero, febrero y marzo de 2023 con una frecuencia por minutos.
 
 ### 1.4 Limitaciones
 Se ha asumido que las tendencias observadas en los datos estudiados son representativas de los comportamientos futuros.
@@ -56,21 +56,21 @@ En concreto nos hemos apoyado en estas librerias:
 #### 2.2.1 Técnicas y pasos realizados
 
 Antes de empezar con todo el análisis hemos hecho un pequeño pre procesado a los datos para prepararlos. Durante este
-proceso nos dimos cuenta que había unas estaciones que carecían de información, por lo que decidimos excluirlas del dataset.
+proceso nos dimos cuenta de que había unas estaciones que carecían de información, por lo que decidimos excluirlas del dataset.
 Dado que no íbamos a estudiar esas en concreto, no afecta a la visión general ni concreta del análisis. 
-Las estaciones excluidas son las nombradas en el apartado **1.5**, [ 48, 188, 429, 487, 520].
+Las estaciones excluidas son las nombradas en el apartado **1.5**,[ 48, 188, 429, 487, 520].
 
-##### Análisis de la ocupación y capacidad usual de las estaciones y su comportamiento
+##### <u>Análisis de la ocupación y capacidad usual de las estaciones y su comportamiento</u>
 
 Primero, nos hemos preguntado cuál era la ocupación media de las estaciones. Queríamos comprobar qué era lo normal 
-(a grosso modo) para cada estación, si estar más vacía, más llena o un término fluctuando y si tenía algo que ver con su
+(grosso modo) para cada estación, si estar más vacía, más llena o un término fluctuando y si tenía algo que ver con su
 localización y altura. 
 Este aspecto lo quisimos relacionar también con la capacidad de cada estación. 
 Para comprobar esto, hemos visualizado en el mapa de Barcelona todas las estaciones.
 Las hemos representado según su estado usual, utilizando un círculo rojo/salmón en el caso de que suelan estar más llenas, 
 gris para las que suelen fluctuar y azul para las vacías. Ha quedado así: 
 
-![newplot.png](imagenes%2Fnewplot.png)
+![newplot.png](imagenes/newplot.png)
 
 Podemos comprobar a simple vista que usualmente las estaciones con una mayor altura son las que están más vacías, 
 por otro lado, donde suele haber llenas es cerca de la costa, que coincide que tienen una altura menor,
@@ -92,15 +92,15 @@ A continuación, ponemos un ejemplo en la Ronda Litoral.
 
 ![img_4.png](imagenes/img_4.png)
 
-##### Análisis de los patrones durante un día de una sola estación
+##### <u>Análisis de los patrones durante un día de una sola estación</u>
 
 Segundo, ayudándonos con el mapa, escogimos una estación, la número 371, para empezar a ver los patrones que sigue durante el día.
 Escogimos esta porque está en medio de la ciudad y sospechábamos que veríamos mucho movimiento o al menos varios picos 
 interesantes. Además, es una de las que, con el análisis anterior, su estado usual era other, es decir, que es de las que 
-fluctúan durante el día. Esta estación esta en el Carrer dels Enamorats y el análisis es del día 09-03-2023.
+fluctúan durante el día. Esta estación está en el Carrer dels Enamorats y el análisis es del día 09-03-2023.
 
 Para conseguir visualizar el patrón, hemos creado una clase "Visualization" para agrupar todos los tipos de visualizaciones que 
-que hemos hecho. Hay variables que son comunes y se registran dentro del _self._ Estas son la fecha, las estaciones, los 
+hemos hecho. Hay variables que son comunes y se registran dentro del _self._ Estas son la fecha, las estaciones, los 
 barrios, y los tres estados de las estaciones, llena (full_stations), vacías (empty_stations) y el resto (other_stations).
 
 Para este caso en concreto hemos hecho una función llamada _def plot_occupancy_stats(self)_ para visualizar cómo varía la
@@ -116,7 +116,7 @@ capacidad durante el período que se le indique. Los variables _self_ que se le 
 
 La frecuencia temporal que hemos establecido es por minutos. Dado que queremos ver los patrones durante todo el día, consideramos 
 importante hacer el análisis minuto a minuto para no perdernos ningún detalle. Al principio, habíamos considerado hacerlo por horas 
-para reutilizar el dataset generado para el modelo que estaba agrupado por horas, pero nos dimos cuenta que, si de verdad
+para reutilizar el dataset generado para el modelo que estaba agrupado por horas, pero nos dimos cuenta de que, si de verdad
 queríamos ver los patrones completos, era necesario hacerlo por minutos. Además, tal y como se explica en el documento MODELOS.md 
 no se usan todas las variables, dado que no todas aportan valor al modelo. Sin embargo, para esta parte sí que se necesitaban ese tipo de variables,
 como la Latitud o Longitud. 
@@ -144,9 +144,9 @@ Si nos fijamos en la curva amarilla que representa a la estación 371, observamo
 
 - **Mediodía (12:00 - 15:30):**
   - 12:00 - 12:30: La capacidad de la estación en cuestión de minutos baja hasta 0.6 aproximadamente. Esto lo hemos hipotetizado
-  como que han repuesto las bicicletas, dado que es un aumento de las bicicletas bastante abrupto. Nos reespaldamos en
-  la franja horaria próxima la gente se dispondría a utilizar las bicis para ir a comer, y como estaba prráticamente vacía
-  hacia falta reponer la estación. 
+  como que han repuesto las bicicletas, dado que es un aumento de las bicicletas bastante abrupto. Nos respaldamos en
+  la franja horaria próxima la gente se dispondría a utilizar las bicis para ir a comer, y como estaba prácticamente vacía
+  hacía falta reponer la estación. 
   - 12:30 - 15:30: La capacidad aumenta, lo que quiere decir que están cogiendo las bicicletas. Coincide con la franja de la comida.
    Lo que apoya nuestra teoría.
 
@@ -163,13 +163,13 @@ Si nos fijamos en la curva amarilla que representa a la estación 371, observamo
 entre 0.2 y 0.4, lo que indica una ocupación moderada. Hay solo un pico en el que la estación se queda prácticamente llena.
 Este pico podría deberse a la gente que vuelve a su casa.
 
-##### Análisis de los patrones durante un mes de una sola estación
+##### <u>Análisis de los patrones durante un mes de una sola estación</u>
 
 Detectar los patrones durante un día aislado no es suficiente para detectar patrones reales de una estación. Como primer
 enfoque para empezar a detectar factores está muy bien, pero nosotros queríamos ir más allá. 
 ¿Pasaría lo mismo el mismo día durante todo el mes?
 
-Para analizarlo, escogimos los jueves del mes de Marzo de la misma estación, la 371. 
+Para analizarlo, escogimos los jueves del mes de marzo de la misma estación, la 371. 
 
 Estos patrones, los hemos analizado con dos gráficos, un heatmap y dos gráficos de líneas. 
 En el primer caso, cada fila es un jueves, cuanto más azul significa más lleno y rojo vacío. En el segundo,
@@ -187,12 +187,12 @@ Es superinteresante observar varias tendencias. Primero comentaremos el gráfico
   - 06:00 - 08:00: Hay un aumento significativo en la capacidad durante las primeras horas de la mañana, alcanzando un pico a las 08:00, lo cual es típico del inicio de la jornada laboral.
   - 08:00 - 10:00: La capacidad se mantiene. La gente está trabajando. Excepto el día 61 que es el único que difiere del
   resto y tiene un pico de llenado y vaciado de bicis en esta franja. Es como si la gente hubiera empezado a trabajar más
-  tarde ese día y todos los movimientos de esta franja se desplazaran 1h a la derecha.
+  tarde ese día y todos los movimientos de esta franja se desplazaran 1 hora a la derecha.
   - 10:00 - 12:00: todos siguen prácticamente la misma tendencia aunque un poco desplazadas. Esto lo hemos atribuído a
   la hora del almuerzo y la variabilidad en las rutinas de las personas. 
 
 
-- **Mediodía (12:00 - 16:00):** Es súper interesante observar que realmente todos los jueves se sigue la misma tendencia o rutina.
+- **Mediodía (12:00 - 16:00):** Es súperinteresante observar que realmente todos los jueves se sigue la misma tendencia o rutina.
 Coinciden mucho todas las líneas.
 
 
@@ -209,7 +209,7 @@ En conclusión, parece que si se cumplen los mismos patrones, por lo que quizá 
 para hacer reposición de bicis y si se comparara con las estaciones de alrededor, quizá hasta de d´nde sería más óptimo
 cogerlas así responderíamos a la pregunta original.
 
-##### Análisis de los patrones durante tres meses de una sola estación
+##### <u>Análisis de los patrones durante tres meses de una sola estación</u>
 
 ###### Month 1 - Enero 2023
 
@@ -253,7 +253,7 @@ En la franja de 18h a 24h la tendencia es la misma en todos los casos.
 
 El mes de Marzo se ha explicado en el apartado anterior.
 
-##### Análisis extrapolado a 3 estaciones de sus patrones durante un día
+##### <u>Análisis extrapolado a 3 estaciones de sus patrones durante un día</u>
 
 En el primer análisis hemos estudiado el comportamiento de una sola estación durante el día 09-03-2023. En este caso estudiaremos el comportamiento
 de dos más. La 57 que está cerca del mar y la 473 que está por la parte alta de Barcelona.
@@ -271,7 +271,7 @@ durante las primeras horas de la mañana estuviera vacía para que la gente que 
 Este podría ser otro punto a seguir investigando. 
 
 
-##### Análisis extrapolado a 3 estaciones de sus patrones durante un mes
+##### <u>Análisis extrapolado a 3 estaciones de sus patrones durante un mes</u>
 
 ###### Estación 57 - Estado usual "full"
 
@@ -296,13 +296,54 @@ Este podría ser otro punto a seguir investigando.
 Lo que deducimos de todos estos gráficos es que para cada tipo de estación, los patrones son prácticamente iguales 
 siempre y cuando sea un mes sin mucho frío ni con fiestas importantes. 
 
-En el caso de días con mucho frío si que hemos detectado un posible patrón, pero requiere de más investigación y análisis.
+En el caso de días con mucho frío sí que hemos detectado un posible patrón, pero requiere de más investigación y análisis.
 
 
-##### Análisis de las 3 estaciones durante una misma semana
+##### <u>Análisis de las 3 estaciones durante una misma semana</u>
 
 Para cambiar un poco el punto de vista de este estudio, hemos querido echar un primer vistazo al comportamiento de las 
 estaciones durante toda una misma semana. ¿Se cumplirán patrones entre diferentes días?
 
 ![img_12.png](imagenes/img_12khv.png)
 
+El gráfico muestra la evolución de la disponibilidad de sitios libres en tres estaciones de bicicletas (estación 57,
+estación 473 y estación 371) durante una semana, con un promedio móvil de 5 periodos aplicado. 
+Aquí hay un análisis de los patrones observados para cada estación y su posible relación:
+
+
+
+## Conclusiones
+
+La pregunta inicial que queríamos empezar a resolver era la posibilidad de crear, a través del estudio de los patrones, 
+posibles rutas de reabastecimiento entre estaciones que sean más óptimas y eficaces. No hemos llegado a resolverla, pero 
+si nos hemos acercado un poco a la respuesta gracias a los diferentes análisis realizados. Y de ellos hemos sacado las siguientes
+conclusiones.
+
+1. Sí existen patrones tanto en días concretos como en la semana en sí.
+2. Hay factores que afectan mucho a los movimientos de bicis, por ejemplo, el tiempo/temperatura o si es fiesta o no.
+3. Aun habiendo usado una muestra pequeña, ha sorprendido observar que las estaciones, si lo normal es que estén llenas,
+siempre suelen estar llenas. Y viceversa. Hay movimiento solo en días puntuales de la semana.
+4. La localización no impacta en el número máximo de huecos disponibles en las estaciones.
+5. La localización sí tiene mucho impacto en el estado usual de disponibilidad de las estaciones.
+6. Hace falta más tiempo y análisis para determinar una red de reabastecimiento.
+
+
+A raíz de este análisis, hemos pensado algunas mejoras que se le podría hacer a la recogida de datos del Bicing:
+1. Registrar las actuales entradas y salidas de bicis de las estaciones. En este análisis hemos teorizado acerca de este
+posible suceso, pero no se ha podido estar en ningún caso 100% seguros.
+2. Actualización de la Base de Datos. Hemos encontrado mucho ruido en el dataset, en concreto, hemos encontrado varias 
+estaciones que no contienen información o está desactualizada y al inicio del análisis nos creo bastante ruido.
+
+ 
+
+## Próximos pasos en la investigación
+
+Como hemos expuesto en la conclusión 6, hace falta más análisis para llegar a responder nuestra pregunta. Estos son los pasos
+o posibles análisis que creemos que se deberían seguir haciendo:
+
+- Estudiar el comportamiento de estaciones próximas, por ejemplo, de un mismo barrio o colindantes. Depende de su comportamiento
+no haría falta mover bicis de abajo arriba, depende de la zona se podría hacer entre ellas mismas.
+- Estudio de patrones en días especiales: de frío, de calor, festivos...
+- Estudio especial a los casos en que las estaciones están o siempre vacías o siempre llenas. ¿Habría que cambiar de localización?
+¿Se podrá hacer algo para reavivarlas?
+- 
