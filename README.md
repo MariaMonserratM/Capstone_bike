@@ -9,7 +9,7 @@ El proyecto tiene la siguiente estructura:
    - API.md: documento donde se redacta todo el proceso.
 
 
-2. [datasets and models](datasets and models): directorio donde encontrará todo lo relacionado con el preprocesado y análisis de variables, y la creación del modelo.
+2. [datasets and models](datasets%20and%20models): directorio donde encontrará todo lo relacionado con el preprocesado y análisis de variables, y la creación del modelo.
    * Load_concatenate_data_code.py: código que genera el dataset con todos los datos en raw extraidos de la web de datos abiertos del Ayuntamiento de Barcelona https://opendata-ajuntament.barcelona.cat/es/
    * Bike_preprocessed_code.py : código que genera el dataset base con las variables contexto.
    * Extra_variables_dataset.py: código que genera el dataset extendido con las varaibles extras añadidas.
