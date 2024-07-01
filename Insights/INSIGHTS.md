@@ -123,26 +123,16 @@ En el caso de la estación número 57, que tiene como ocupación usual "full" y 
 analisis
 
 ##### Análisis de los patrones durante un mes de una sola estación
+Para realizar este análisis, hemos seleccionado todos los jueves dentro de un mes. Aunque la clase está diseñada para permitir el análisis de cualquier día de la semana, hemos elegido el jueves como ejemplo, considerando que cualquier día entre semana podría mostrar patrones similares.
 
+Como se puede observar en la gráfica, las estaciones con patrones de "full" o "empty" son aquellas que presentan menos actividad, y por lo tanto, no muestran muchos cambios. La explicación de este fenómeno puede ser multifactorial y probablemente nos falte información para determinar las causas exactas. Una primera hipótesis a comprobar es si estas estaciones reciben un flujo adecuado tanto de usuarios como de los coches porta bicis del propio servicio de bicing.
 
-
-
-##### Análisis de los patrones durante tres meses de una sola estación
-
-
-
-
+Para calcular la media de cada estación, se ha utilizado un groupby seguido de una función mean(). Además, para normalizar la curva y suavizar las irregularidades, hemos aplicado dos medias móviles. Las irregularidades, o "dientes de sierra", aparecen porque las entradas en el dataset original no son siempre a la misma hora, por ejemplo, algunos días hay registros a las 00:02 y otros a las 00:04. Esto ha dificultado un poco el cálculo de la media. Aun así, considerando la visualización, creemos que la media obtenida es muy representativa.
 
 ##### Análisis extrapolado a 3 estaciones de sus patrones durante un día
-
-
-
-
+Igual que hemos visto el análisis dentro de un solo día de una estación, hemos hecho lo mismo para el grupo de tres estaciones. Estas tres estaciones, como se ha comentado anteriormente, son 3 estaciones con 3 patrones de usabilidad, ['full', 'empty', 'other']. Estas estaciones son las [57, 473, 371] sucesivamente. Como se puede observar, el patron es real y la visulización en el día seleccionada va alineada con la hipotesis que habíamos visto con la representación en el mapa de la ciudad de barcelona.
 
 ##### Análisis extrapolado a 3 estaciones de sus patrones durante un mes
-
-
-
-
+Usando el Heatmap, también podemos hacer una visualización para ver la usabilidad de las estaciones. Podemos ver como las estaciones presentan los patrones que venimos observando en las gráficas anteirores. Estación 57 - 'full' con tonos más azules, demostrando que las disponibilidad de espacios es baja. Estación 473 - 'empty' muestra tonos rojizos, demostrando que presenta mucha disponibilidad. Por último, Estación 371 - 'other' que presenta más variabilidad, mostrando un patrón de usabilidad que concuerda con horas punta.
 
 ##### Análisis extrapolado a 3 estaciones de sus patrones durante tres meses
