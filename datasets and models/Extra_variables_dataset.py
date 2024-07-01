@@ -555,6 +555,7 @@ if __name__ == "__main__":
     # CREATE FULL DATASETS (TRAIN AND TEST) WITH CATEGORICAL VARIABLES
     # TRAIN
     df_train = read_ctx_df('data/all_mean_hour_ctx_2.csv')
+
     df_train = add_day_info_1(df_train)
     df_train = add_info_nearby_stations(df_train)
 
