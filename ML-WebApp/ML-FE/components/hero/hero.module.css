@@ -1,0 +1,26 @@
+.wrapper {
+  height: 55vh;
+}
+
+.imageContainer {
+  overflow: hidden;
+  flex-grow: 1;
+  position: relative;
+  clip-path: circle(80% at 78% 50%);
+}
+
+.imageContainerImg {
+  width: 100%;
+  position: relative;
+  opacity: 0;
+  transition: opacity 3s ease-in-out;
+}
+
+.imageContainerImgVisible {
+  opacity: 1;
+}
+
+.imageContainerDescription {
+  position: relative;
+  z-index: 10;
+}
