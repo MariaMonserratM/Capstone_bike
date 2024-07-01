@@ -1,0 +1,26 @@
+services:
+  backend:
+    build:
+      context: ./ML-BE
+      dockerfile: Dockerfile
+    container_name: backend
+    ports:
+      - 8000:8000
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./ML-FE
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    env_file:
+      - ./ML-FE/.env
+
+networks:
+  app-network:
+    driver: bridge
