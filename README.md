@@ -25,6 +25,7 @@ El proyecto tiene la siguiente estructura:
 
 
 Proyecto realizado por: Núria Romero, Roger Salvador, Demian Moschin, Sherezade Fuentes y María Monserrat
+
 A cargo de los profesores: Mariona Carós Roca y Pere Gilabert Roca 
 
 ![img.png](img.png)
