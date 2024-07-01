@@ -310,7 +310,10 @@ El gráfico muestra la evolución de la disponibilidad de sitios libres en tres 
 estación 473 y estación 371) durante una semana, con un promedio móvil de 5 periodos aplicado. 
 Aquí hay un análisis de los patrones observados para cada estación y su posible relación:
 
+La primera idea que se nos ocurre es analizar los diferentes patrones entre los fines de semana y los días laborables. La hipotesis es que el patrón será distinto.
+Durante los días laborables, la estación 371 empieza a mostrar movimiento desde las 6:00 de la mañana. Esto se debe probablemente a que se inicia la peregrinación para desplazarse al trabajo. En cambio, durante los fines de semana, la actividad en la misma estación comienza más tarde, aproximadamente alrededor de las 10:00 de la mañana.
 
+Una posible explicación sería, que los horarios puede atribuirse a que las personas tienden a comenzar sus actividades de ocio y recreación más tarde durante los fines de semana, en comparación con los días laborables cuando tienen rutinas más tempranas. 
 
 ## Conclusiones
 
