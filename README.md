@@ -9,13 +9,13 @@ El proyecto tiene la siguiente estructura:
    - API.md: documento donde se redacta todo el proceso.
 
 
-2. [datasets and models](datasets and models): directorio donde encontrará todo lo relacionado con la creación del modelo, preprocesado y análisis de variables.
-   - Bike_preprocessed_code.py : código que....
-   - Docks_Avaliability_Prediction_Bicing.ipynb: notebook de python que...
-   * Extra_variables_dataset.py: código que....
-   * Load_concatenate_data_code.py: código donde......
+2. [datasets and models](datasets and models): directorio donde encontrará todo lo relacionado con el preprocesado y análisis de variables, y la creación del modelo.
+   * Load_concatenate_data_code.py: código que genera el dataset con todos los datos en raw extraidos de la web de datos abiertos del Ayuntamiento de Barcelona https://opendata-ajuntament.barcelona.cat/es/
+   * Bike_preprocessed_code.py : código que genera el dataset base con las variables contexto.
+   * Extra_variables_dataset.py: código que genera el dataset extendido con las varaibles extras añadidas.
+   * Docks_Avaliability_Prediction_Bicing.ipynb: notebook de python explora diferentes modelos predictivos y analiza la importancia de las variables en cada uno, para finalmente hacer la selección del mejor modelo y de sus principales variables.
    * MODELO.md: documento donde se redacta todo el proceso de elección de variables, preprocesado y creación del modelo.
-   * requirements.txt: documento anexado a XXXX que necesita para instalar todas las librerias necesarias para ejecutar el código.
+   * requirements.txt: documento anexado a los 3 primeros archivos .py que necesita para instalar todas las librerias necesarias para ejecutar el código.
    
 3. [Insights](Insights): directorio donde encontrará todo lo relacionado con la definición y el desarrollo de los diferentes insights.
    * imagenes: directorio dedicado a almacenar las imágenes que se necesitan para apoyar las explicaciones de la memoria.

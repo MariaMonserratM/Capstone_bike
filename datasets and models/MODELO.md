@@ -94,7 +94,7 @@ Durante el invierno y la primavera, el porcentaje medio de docks disponibles por
 
 #### Días de la semana
 
-Hay una diferencia entre el porcentaje medio de docks disponibles según si es día laborable o fin de semana.
+Hay una diferencia entre el porcentaje medio de docks disponibles según si es día laborable o fin de semana, aunque esta diferencia no parece muy significativa.
 
 ![day_of_week](https://github.com/MariaMonserratM/Capstone_bike/assets/66376420/730e878b-066c-4cd5-b47e-9a278e051e8d)
 
