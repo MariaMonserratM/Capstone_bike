@@ -1,13 +1,31 @@
 # Capstone Bike Project
+
 El objetivo de este repositorio es incluir todo el código y explicaciones relacionadas con la creación del modelo, los
 diferentes análisis y conclusiones.
 Además, se pondrá a disposición del usuario la web donde podrá probar en tiempo real las predicciones del modelo.
 
 El proyecto tiene la siguiente estructura:
 
-1. [API](API): directorio donde encontrará todo lo relacionado con la creación de la aplicación.
-   - API.md: documento donde se redacta todo el proceso.
+1. [ML-WebApp](https://github.com/MariaMonserratM/Capstone_bike/tree/main/ML-WebApp): directorio donde encontrará informacion relacionada a la arquitectura de la aplicación y a cómo poder correr el proyecto en su maquina local.
 
+   Live site: [Web app hosted in vercel
+   ](https://ml-dockerized.vercel.app/)
+
+   Live site for Backend Service: [API DOCS](https://ml-dockerized.onrender.com/docs)
+
+   Nuestro proyecto se encuentra en servidores publicos, pero ud. puede optar por correrlo de manera local. Para poder hacerlo, por favor siga con las instrucciones indicadas en el link anterior.
+
+   Pre - requisitos:
+
+   - Instalar Docker y Docker compose en su maquina.
+
+     una vez realizado esto, simplemente corra el siguiente comando:
+
+     ```
+     docker compose build
+
+     docker compose up
+     ```
 
 2. [datasets and models](datasets%20and%20models): directorio donde encontrará todo lo relacionado con el preprocesado y análisis de variables, y la creación del modelo.
    * Load_concatenate_data_code.py: código que genera el dataset con todos los datos en raw extraidos de la web de datos abiertos del Ayuntamiento de Barcelona https://opendata-ajuntament.barcelona.cat/es/
